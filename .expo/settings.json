@@ -5,9 +5,5 @@
   "strict": false,
   "minify": false,
   "urlType": "exp",
-<<<<<<< HEAD
   "urlRandomness": "tu-fu4"
-=======
-  "urlRandomness": "q8-ryw"
->>>>>>> 467569937ae9228f4ace0d7c927f35199d8e4d82
 }
