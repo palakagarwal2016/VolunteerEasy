@@ -33,6 +33,17 @@ const Name = MKTextField.textfieldWithFloatingLabel()
   })
   .build();
 
+  const Location = MKTextField.textfieldWithFloatingLabel()
+    .withPlaceholder('Location')
+    .withStyle(inputStyles.textfieldWithFloatingLabel)
+    .withTextInputStyle({flex: 1})
+    .withFloatingLabelFont({
+      fontSize: 20,
+      fontStyle: 'italic',
+      fontWeight: '200',
+    })
+    .build();
+
 const ServiceHours = MKTextField.textfieldWithFloatingLabel()
   .withPlaceholder('Total hours completed')
   .withStyle(inputStyles.textfieldWithFloatingLabel)
@@ -54,18 +65,6 @@ const ServiceHours = MKTextField.textfieldWithFloatingLabel()
       fontStyle: 'italic',
       fontWeight: '200',
     })
-    .build();
-
-  const PhoneNumber = MKTextField.textfieldWithFloatingLabel()
-    .withPlaceholder('Phone number')
-    .withStyle(inputStyles.textfieldWithFloatingLabel)
-    .withTextInputStyle({flex: 1})
-    .withFloatingLabelFont({
-      fontSize: 20,
-      fontStyle: 'italic',
-      fontWeight: '200',
-    })
-    .withKeyboardType('numeric')
     .build();
 
 export default class Form extends React.Component {
@@ -90,57 +89,59 @@ export default class Form extends React.Component {
         <View style={{margin:20}}>
           <Name/>
           <ServiceHours/>
-          <PhoneNumber/>
+          <Location/>
           <Organization/>
         </View>
         <Text>{"\n"}</Text>
-        <DatePicker
-        style={{width: 150, display: 'inline'}}
-        date={"2016-05-15"}
-        mode="date"
-        format="YYYY-MM-DD"
-        minDate="2016-05-01"
-        maxDate="2016-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
-          // ... You can check the source to find the other keys.
-        }}
-        onDateChange={(date) => {this.setState({date: date})}}
-      />
-        <DatePicker
-        style={{width: 150, display: 'inline'}}
-        date={"2016-05-15"}
-        mode="date"
-        format="YYYY-MM-DD"
-        minDate="2016-05-01"
-        maxDate="2016-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
-          // ... You can check the source to find the other keys.
-        }}
-        onDateChange={(date) => {this.setState({date: date})}}
-      />
-      {/* <SignatureCapture
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <DatePicker
+          style={{width: 150, display: 'inline'}}
+          date={"2016-05-15"}
+          mode="date"
+          format="YYYY-MM-DD"
+          minDate="2016-05-01"
+          maxDate="2016-06-01"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+            // ... You can check the source to find the other keys.
+          }}
+          onDateChange={(date) => {this.setState({date: date})}}
+        />
+          <DatePicker
+          style={{width: 150, display: 'inline'}}
+          date={"2016-05-15"}
+          mode="date"
+          format="YYYY-MM-DD"
+          minDate="2016-05-01"
+          maxDate="2016-06-01"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+            // ... You can check the source to find the other keys.
+          }}
+          onDateChange={(date) => {this.setState({date: date})}}
+        />
+    </View>
+      {/*}<SignatureCapture
           style={{width: 100, height: 100}}
           rotateClockwise={true}
           square={true}
