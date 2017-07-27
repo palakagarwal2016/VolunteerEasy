@@ -18,6 +18,7 @@ export default class Register extends React.Component {
 
   }
 
+
   render() {
     return (
       <View style={styles.container}>

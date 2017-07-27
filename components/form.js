@@ -140,7 +140,7 @@ export default class Form extends React.Component {
         }}
         onDateChange={(date) => {this.setState({date: date})}}
       />
-      {/*}<SignatureCapture
+      {/* <SignatureCapture
           style={{width: 100, height: 100}}
           rotateClockwise={true}
           square={true}
@@ -150,7 +150,7 @@ export default class Form extends React.Component {
           showNativeButtons={true}
           showTitleLabel={true}
           viewMode={'landscape'}
-        />*/}
+        /> */}
         <TouchableOpacity>
           <Button
             onPress={() => {alert('Submitted!')}}

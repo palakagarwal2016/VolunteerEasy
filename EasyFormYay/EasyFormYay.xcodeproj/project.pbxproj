@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5435AC691F2A5C40000E449D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435AC681F2A5C40000E449D /* main.m */; };
+		5435AC6C1F2A5C40000E449D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435AC6B1F2A5C40000E449D /* AppDelegate.m */; };
+		5435AC6F1F2A5C40000E449D /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435AC6E1F2A5C40000E449D /* MasterViewController.m */; };
+		5435AC721F2A5C40000E449D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435AC711F2A5C40000E449D /* DetailViewController.m */; };
+		5435AC751F2A5C40000E449D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5435AC731F2A5C40000E449D /* Main.storyboard */; };
+		5435AC771F2A5C40000E449D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5435AC761F2A5C40000E449D /* Assets.xcassets */; };
+		5435AC7A1F2A5C40000E449D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5435AC781F2A5C40000E449D /* LaunchScreen.storyboard */; };
+		5435AC851F2A5C40000E449D /* EasyFormYayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435AC841F2A5C40000E449D /* EasyFormYayTests.m */; };
+		5435AC901F2A5C40000E449D /* EasyFormYayUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435AC8F1F2A5C40000E449D /* EasyFormYayUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5435AC811F2A5C40000E449D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5435AC5C1F2A5C40000E449D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5435AC631F2A5C40000E449D;
+			remoteInfo = EasyFormYay;
+		};
+		5435AC8C1F2A5C40000E449D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5435AC5C1F2A5C40000E449D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5435AC631F2A5C40000E449D;
+			remoteInfo = EasyFormYay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5435AC641F2A5C40000E449D /* EasyFormYay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyFormYay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5435AC681F2A5C40000E449D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5435AC6A1F2A5C40000E449D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5435AC6B1F2A5C40000E449D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5435AC6D1F2A5C40000E449D /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		5435AC6E1F2A5C40000E449D /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		5435AC701F2A5C40000E449D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5435AC711F2A5C40000E449D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		5435AC741F2A5C40000E449D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5435AC761F2A5C40000E449D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5435AC791F2A5C40000E449D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5435AC7B1F2A5C40000E449D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5435AC801F2A5C40000E449D /* EasyFormYayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyFormYayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5435AC841F2A5C40000E449D /* EasyFormYayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyFormYayTests.m; sourceTree = "<group>"; };
+		5435AC861F2A5C40000E449D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5435AC8B1F2A5C40000E449D /* EasyFormYayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyFormYayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5435AC8F1F2A5C40000E449D /* EasyFormYayUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyFormYayUITests.m; sourceTree = "<group>"; };
+		5435AC911F2A5C40000E449D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5435AC611F2A5C40000E449D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5435AC7D1F2A5C40000E449D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5435AC881F2A5C40000E449D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5435AC5B1F2A5C40000E449D = {
+			isa = PBXGroup;
+			children = (
+				5435AC661F2A5C40000E449D /* EasyFormYay */,
+				5435AC831F2A5C40000E449D /* EasyFormYayTests */,
+				5435AC8E1F2A5C40000E449D /* EasyFormYayUITests */,
+				5435AC651F2A5C40000E449D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5435AC651F2A5C40000E449D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5435AC641F2A5C40000E449D /* EasyFormYay.app */,
+				5435AC801F2A5C40000E449D /* EasyFormYayTests.xctest */,
+				5435AC8B1F2A5C40000E449D /* EasyFormYayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5435AC661F2A5C40000E449D /* EasyFormYay */ = {
+			isa = PBXGroup;
+			children = (
+				5435AC6A1F2A5C40000E449D /* AppDelegate.h */,
+				5435AC6B1F2A5C40000E449D /* AppDelegate.m */,
+				5435AC6D1F2A5C40000E449D /* MasterViewController.h */,
+				5435AC6E1F2A5C40000E449D /* MasterViewController.m */,
+				5435AC701F2A5C40000E449D /* DetailViewController.h */,
+				5435AC711F2A5C40000E449D /* DetailViewController.m */,
+				5435AC731F2A5C40000E449D /* Main.storyboard */,
+				5435AC761F2A5C40000E449D /* Assets.xcassets */,
+				5435AC781F2A5C40000E449D /* LaunchScreen.storyboard */,
+				5435AC7B1F2A5C40000E449D /* Info.plist */,
+				5435AC671F2A5C40000E449D /* Supporting Files */,
+			);
+			path = EasyFormYay;
+			sourceTree = "<group>";
+		};
+		5435AC671F2A5C40000E449D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5435AC681F2A5C40000E449D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5435AC831F2A5C40000E449D /* EasyFormYayTests */ = {
+			isa = PBXGroup;
+			children = (
+				5435AC841F2A5C40000E449D /* EasyFormYayTests.m */,
+				5435AC861F2A5C40000E449D /* Info.plist */,
+			);
+			path = EasyFormYayTests;
+			sourceTree = "<group>";
+		};
+		5435AC8E1F2A5C40000E449D /* EasyFormYayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5435AC8F1F2A5C40000E449D /* EasyFormYayUITests.m */,
+				5435AC911F2A5C40000E449D /* Info.plist */,
+			);
+			path = EasyFormYayUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5435AC631F2A5C40000E449D /* EasyFormYay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5435AC941F2A5C40000E449D /* Build configuration list for PBXNativeTarget "EasyFormYay" */;
+			buildPhases = (
+				5435AC601F2A5C40000E449D /* Sources */,
+				5435AC611F2A5C40000E449D /* Frameworks */,
+				5435AC621F2A5C40000E449D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyFormYay;
+			productName = EasyFormYay;
+			productReference = 5435AC641F2A5C40000E449D /* EasyFormYay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5435AC7F1F2A5C40000E449D /* EasyFormYayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5435AC971F2A5C40000E449D /* Build configuration list for PBXNativeTarget "EasyFormYayTests" */;
+			buildPhases = (
+				5435AC7C1F2A5C40000E449D /* Sources */,
+				5435AC7D1F2A5C40000E449D /* Frameworks */,
+				5435AC7E1F2A5C40000E449D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5435AC821F2A5C40000E449D /* PBXTargetDependency */,
+			);
+			name = EasyFormYayTests;
+			productName = EasyFormYayTests;
+			productReference = 5435AC801F2A5C40000E449D /* EasyFormYayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5435AC8A1F2A5C40000E449D /* EasyFormYayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5435AC9A1F2A5C40000E449D /* Build configuration list for PBXNativeTarget "EasyFormYayUITests" */;
+			buildPhases = (
+				5435AC871F2A5C40000E449D /* Sources */,
+				5435AC881F2A5C40000E449D /* Frameworks */,
+				5435AC891F2A5C40000E449D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5435AC8D1F2A5C40000E449D /* PBXTargetDependency */,
+			);
+			name = EasyFormYayUITests;
+			productName = EasyFormYayUITests;
+			productReference = 5435AC8B1F2A5C40000E449D /* EasyFormYayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5435AC5C1F2A5C40000E449D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Palak Agarwal";
+				TargetAttributes = {
+					5435AC631F2A5C40000E449D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					5435AC7F1F2A5C40000E449D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5435AC631F2A5C40000E449D;
+					};
+					5435AC8A1F2A5C40000E449D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5435AC631F2A5C40000E449D;
+					};
+				};
+			};
+			buildConfigurationList = 5435AC5F1F2A5C40000E449D /* Build configuration list for PBXProject "EasyFormYay" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5435AC5B1F2A5C40000E449D;
+			productRefGroup = 5435AC651F2A5C40000E449D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5435AC631F2A5C40000E449D /* EasyFormYay */,
+				5435AC7F1F2A5C40000E449D /* EasyFormYayTests */,
+				5435AC8A1F2A5C40000E449D /* EasyFormYayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5435AC621F2A5C40000E449D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5435AC7A1F2A5C40000E449D /* LaunchScreen.storyboard in Resources */,
+				5435AC771F2A5C40000E449D /* Assets.xcassets in Resources */,
+				5435AC751F2A5C40000E449D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5435AC7E1F2A5C40000E449D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5435AC891F2A5C40000E449D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5435AC601F2A5C40000E449D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5435AC6C1F2A5C40000E449D /* AppDelegate.m in Sources */,
+				5435AC6F1F2A5C40000E449D /* MasterViewController.m in Sources */,
+				5435AC691F2A5C40000E449D /* main.m in Sources */,
+				5435AC721F2A5C40000E449D /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5435AC7C1F2A5C40000E449D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5435AC851F2A5C40000E449D /* EasyFormYayTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5435AC871F2A5C40000E449D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5435AC901F2A5C40000E449D /* EasyFormYayUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5435AC821F2A5C40000E449D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5435AC631F2A5C40000E449D /* EasyFormYay */;
+			targetProxy = 5435AC811F2A5C40000E449D /* PBXContainerItemProxy */;
+		};
+		5435AC8D1F2A5C40000E449D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5435AC631F2A5C40000E449D /* EasyFormYay */;
+			targetProxy = 5435AC8C1F2A5C40000E449D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5435AC731F2A5C40000E449D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5435AC741F2A5C40000E449D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5435AC781F2A5C40000E449D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5435AC791F2A5C40000E449D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5435AC921F2A5C40000E449D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5435AC931F2A5C40000E449D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5435AC951F2A5C40000E449D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EasyFormYay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PalakAgarwal.EasyFormYay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5435AC961F2A5C40000E449D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EasyFormYay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PalakAgarwal.EasyFormYay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5435AC981F2A5C40000E449D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EasyFormYayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PalakAgarwal.EasyFormYayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyFormYay.app/EasyFormYay";
+			};
+			name = Debug;
+		};
+		5435AC991F2A5C40000E449D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EasyFormYayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PalakAgarwal.EasyFormYayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyFormYay.app/EasyFormYay";
+			};
+			name = Release;
+		};
+		5435AC9B1F2A5C40000E449D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EasyFormYayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PalakAgarwal.EasyFormYayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EasyFormYay;
+			};
+			name = Debug;
+		};
+		5435AC9C1F2A5C40000E449D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EasyFormYayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PalakAgarwal.EasyFormYayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EasyFormYay;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5435AC5F1F2A5C40000E449D /* Build configuration list for PBXProject "EasyFormYay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5435AC921F2A5C40000E449D /* Debug */,
+				5435AC931F2A5C40000E449D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5435AC941F2A5C40000E449D /* Build configuration list for PBXNativeTarget "EasyFormYay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5435AC951F2A5C40000E449D /* Debug */,
+				5435AC961F2A5C40000E449D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5435AC971F2A5C40000E449D /* Build configuration list for PBXNativeTarget "EasyFormYayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5435AC981F2A5C40000E449D /* Debug */,
+				5435AC991F2A5C40000E449D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5435AC9A1F2A5C40000E449D /* Build configuration list for PBXNativeTarget "EasyFormYayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5435AC9B1F2A5C40000E449D /* Debug */,
+				5435AC9C1F2A5C40000E449D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5435AC5C1F2A5C40000E449D /* Project object */;
+}
