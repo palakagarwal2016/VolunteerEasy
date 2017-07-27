@@ -35,8 +35,8 @@ export default class Form extends React.Component {
       hours: '',
       location: '',
       organization: '',
-      startdate: '',
-      enddate: '',
+      startdate: new Date(),
+      enddate: new Date(),
     }
   }
 
@@ -120,11 +120,9 @@ export default class Form extends React.Component {
         <View style={{flex: 1, alignItems: 'center'}}>
           <DatePicker
           style={{width: 150}}
-          date={"2016-05-15"}
+          date={this.state.startdate}
           mode="date"
           format="YYYY-MM-DD"
-          minDate="2016-05-01"
-          maxDate="2016-06-01"
           confirmBtnText="Confirm"
           cancelBtnText="Cancel"
           customStyles={{
@@ -143,11 +141,9 @@ export default class Form extends React.Component {
         />
           <DatePicker
           style={{width: 150}}
-          date={"2016-05-15"}
+          date={this.state.enddate}
           mode="date"
           format="YYYY-MM-DD"
-          minDate="2016-05-01"
-          maxDate="2016-06-01"
           confirmBtnText="Confirm"
           cancelBtnText="Cancel"
           customStyles={{
