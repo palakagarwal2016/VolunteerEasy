@@ -37,6 +37,8 @@ export default class Form extends React.Component {
       organization: '',
       startdate: '',
       enddate: '',
+      lat: '',
+      long: ''
     }
   }
 
@@ -45,7 +47,21 @@ export default class Form extends React.Component {
   }
 // hello
   componentWillMount() {
-    AsyncStorage.getItem('user').then(user => { this.setState({ name: user }); alert(user) });
+    AsyncStorage.getItem('user').then(user => this.setState({ name: user }));
+    navigator.geolocation.getCurrentPosition(
+      (success) => {
+        alert('latitude: ' + success.coords.latitude);
+        alert('longitude: ' + success.coords.longitude);
+        this.setState({
+          lat: success.coords.latitude,
+          long: success.coords.longitude
+        });
+      },
+      (error) => {
+
+      },
+      {}
+    )
   }
 
   submit() {
@@ -64,7 +80,7 @@ export default class Form extends React.Component {
 
     const Location = MKTextField.textfield()
       .withPlaceholder('Location')
-      .withDefaultValue(this.state.location)
+      .withDefaultValue(this.state.lat + ', ' + this.state.long)
       .withStyle(inputStyles.textfield)
       .withTextInputStyle({flex: 1})
       .withOnEndEditing((e) => this.setState({location: e.nativeEvent.text}))
@@ -72,13 +88,16 @@ export default class Form extends React.Component {
 
     const ServiceHours = MKTextField.textfield()
       .withPlaceholder('Service Hours')
+      .withDefaultValue(this.state.hours)
       .withStyle(inputStyles.textfield)
       .withTextInputStyle({flex: 1})
       .withOnEndEditing((e) => this.setState({hours: e.nativeEvent.text}))
+      .withKeyboardType('numeric')
       .build();
 
     const Organization = MKTextField.textfield()
       .withPlaceholder('Organization')
+      .withDefaultValue(this.state.organization)
       .withStyle(inputStyles.textfield)
       .withTextInputStyle({flex: 1})
       .withOnEndEditing((e) => this.setState({organization: e.nativeEvent.text}))
