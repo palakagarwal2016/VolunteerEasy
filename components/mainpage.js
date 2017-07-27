@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, Image, Button } from 'react-native';
+import { ListView, StyleSheet, TouchableOpacity, Text, View, Image, Button } from 'react-native';
 import {
   getTheme,
 } from 'react-native-material-kit';
@@ -12,8 +12,10 @@ export default class MainPage extends React.Component {
 
   constructor(props) {
     super(props);
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      students: []
+      students: [],
+      dataSource: ds.cloneWithRows([]),
     }
   }
 
@@ -22,8 +24,10 @@ export default class MainPage extends React.Component {
     .then((response) => response.json())
     .then((responseJson) => {
       if (responseJson.success) {
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.setState({
-          students: responseJson.students
+          students: responseJson.students,
+          dataSource: ds.cloneWithRows(responseJson.students)
         });
       } else {
         Alert.alert(
@@ -43,25 +47,31 @@ export default class MainPage extends React.Component {
         <View style={{marginTop: 20}}>
           {/*<Image source={{uri : base64Icon}} style={theme.cardImageStyle} />*/}
           {/*Use list view*/}
+          <TouchableOpacity>
+            <Button
+              onPress={() => {this.props.navigation.navigate('Form');}}
+              title="New form"
+              color="#841584"
+              accessibilityLabel="Submit a form"
+            />
+          </TouchableOpacity>
           {this.state.students.length !== 0 ?
-            this.state.students.map((student) =>
-            <View style={theme.cardStyle}>
-              <Text style={theme.cardActionStyle}>Amy Wang                  Total: 8 hours</Text>
-              <Text style={theme.cardContentStyle}>
-                Organizations: bob, bob, bob
-              </Text>
+            <ListView
+              dataSource={this.state.dataSource}
+              renderRow={(student) =>
+              <View>
+                <View key={student._id} style={theme.cardStyle}>
+                  <Text style={theme.cardActionStyle}>{student.fullName}                 Total: {student.hours} hours</Text>
+                  <Text style={theme.cardContentStyle}>
+                    Organizations: {student.organizations.length === 0 ? "None" : student.organizations.join(', ')}
+                  </Text>
+                </View>
+              <Text>{"\n"}</Text>
             </View>
-            )
+            }
+            />
             : null}
         </View>
-        <TouchableOpacity>
-          <Button
-            onPress={() => {this.props.navigation.navigate('Form');}}
-            title="Submit"
-            color="#841584"
-            accessibilityLabel="Submit a form"
-          />
-        </TouchableOpacity>
 
       </View>
     );

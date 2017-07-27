@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, StyleSheet, Text, TextInput, View, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { AsyncStorage, Button, StyleSheet, Text, TextInput, View, TouchableOpacity, TouchableHighlight } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import SignatureCapture from 'react-native-signature-capture';
-import StackNavigator from './mainpage';
+import {StackNavigator} from './mainpage';
 import {
   MKTextField,
   MKColor,
@@ -17,85 +17,81 @@ const inputStyles = StyleSheet.create({
     marginLeft: 7, marginRight: 7,
     // backgroundColor: MKColor.Lime,
   },
+  textfield: {
+    height: 28,  // have to do it on iOS
+    marginTop: 32,
+  },
   textfieldWithFloatingLabel: {
     height: 48,  // have to do it on iOS
     marginTop: 10,
   },
 });
-const Name = MKTextField.textfieldWithFloatingLabel()
-  .withPlaceholder('Name')
-  .withStyle(inputStyles.textfieldWithFloatingLabel)
-  .withTextInputStyle({flex: 1})
-  .withFloatingLabelFont({
-    fontSize: 20,
-    fontStyle: 'italic',
-    fontWeight: '200',
-  })
-  .build();
-
-  const Location = MKTextField.textfieldWithFloatingLabel()
-    .withPlaceholder('Location')
-    .withStyle(inputStyles.textfieldWithFloatingLabel)
-    .withTextInputStyle({flex: 1})
-    .withFloatingLabelFont({
-      fontSize: 20,
-      fontStyle: 'italic',
-      fontWeight: '200',
-    })
-    .build();
-
-const ServiceHours = MKTextField.textfieldWithFloatingLabel()
-  .withPlaceholder('Total hours completed')
-  .withStyle(inputStyles.textfieldWithFloatingLabel)
-  .withTextInputStyle({flex: 1})
-  .withFloatingLabelFont({
-    fontSize: 20,
-    fontStyle: 'italic',
-    fontWeight: '200',
-  })
-  .withKeyboardType('numeric')
-  .build();
-
-  const Organization = MKTextField.textfieldWithFloatingLabel()
-    .withPlaceholder('Organization')
-    .withStyle(inputStyles.textfieldWithFloatingLabel)
-    .withTextInputStyle({flex: 1})
-    .withFloatingLabelFont({
-      fontSize: 20,
-      fontStyle: 'italic',
-      fontWeight: '200',
-    })
-    .build();
 
 export default class Form extends React.Component {
   constructor(){
     super();
-    this.state={
+    this.state = {
       name: '',
-      hours: null,
+      hours: '',
       location: '',
       organization: '',
-      startdate: null,
-      enddate: null,
+      startdate: '',
+      enddate: '',
     }
   }
+
   static navigationOptions = {
     title: 'Submit form'
   }
 
-  submit() {
-    this.props.navigation.navigate('MainPage');
+  componentWillMount() {
+    AsyncStorage.getItem('user').then(user => { this.setState({ name: user }); alert(user) });
   }
 
-  render() {
+  submit() {
+    alert('name: ' + JSON.stringify(this.state.name)+ ', hours: ' + JSON.stringify(this.state.hours) + ', location: ' + JSON.stringify(this.state.location) +
+    ', organization: ' + JSON.stringify(this.state.organization) + ', start date: ' + JSON.stringify(this.state.startdate) + ', enddate: ' + JSON.stringify(this.state.enddate))
+  }
+
+  render = () => {
+    let Name = MKTextField.textfield()
+      .withDefaultValue(this.state.name)
+      .withStyle(inputStyles.textfield)
+      .withTextInputStyle({flex: 1})
+      .withOnEndEditing((e) => this.setState({name: e.nativeEvent.text}))
+      .build();
+
+
+    const Location = MKTextField.textfield()
+      .withPlaceholder('Location')
+      .withDefaultValue(this.state.location)
+      .withStyle(inputStyles.textfield)
+      .withTextInputStyle({flex: 1})
+      .withOnEndEditing((e) => this.setState({location: e.nativeEvent.text}))
+      .build();
+
+    const ServiceHours = MKTextField.textfield()
+      .withPlaceholder('Service Hours')
+      .withStyle(inputStyles.textfield)
+      .withTextInputStyle({flex: 1})
+      .withOnEndEditing((e) => this.setState({hours: e.nativeEvent.text}))
+      .build();
+
+    const Organization = MKTextField.textfield()
+      .withPlaceholder('Organization')
+      .withStyle(inputStyles.textfield)
+      .withTextInputStyle({flex: 1})
+      .withOnEndEditing((e) => this.setState({organization: e.nativeEvent.text}))
+      .build();
+
     return (
       <View style={styles.container}>
         {/* display */}
         <View style={{margin:20}}>
-          <Name onNameChange={(text) => {this.setState({name: text})}}/>
-          <ServiceHours onServiceChange={(hours) => {this.setState({hours: hours})}}/>
-          <Location onLocationChange={(location) => {this.setState({location: location})}}/>
-          <Organization onOrgChange={(organization) => {this.setState({organization: organization})}}/>
+          <Name />
+          <ServiceHours />
+          <Location />
+          <Organization />
         </View>
         <Text>{"\n"}</Text>
         <View style={{flex: 1, alignItems: 'center'}}>
@@ -159,7 +155,7 @@ export default class Form extends React.Component {
         /> */}
         <TouchableOpacity>
           <Button
-            onPress={() => submit()}
+            onPress={() => this.submit()}
             title="Submit"
             color="#841584"
             accessibilityLabel="Submit a form"
