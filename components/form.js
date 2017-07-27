@@ -1,5 +1,12 @@
 import React from 'react';
-import { AsyncStorage, Button, StyleSheet, Text, TextInput, View, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { Alert,
+  AsyncStorage,
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TouchableHighlight } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import SignatureCapture from 'react-native-signature-capture';
 import {StackNavigator} from './mainpage';
@@ -69,8 +76,55 @@ export default class Form extends React.Component {
   }
 
   submit() {
-    alert('name: ' + JSON.stringify(this.state.name)+ ', hours: ' + JSON.stringify(this.state.hours) + ', location: ' + JSON.stringify(this.state.location) +
-    ', organization: ' + JSON.stringify(this.state.organization) + ', start date: ' + JSON.stringify(this.state.startdate) + ', enddate: ' + JSON.stringify(this.state.enddate))
+    if (this.state.name === "" || this.state.hours === "" || this.state.location === "" || this.state.organization === "") {
+      Alert.alert(
+        'Error',
+        'Not all fields complete', // Button
+      )
+    } else if (new Date(this.state.enddate).getTime() < new Date(this.state.startdate).getTime()) {
+      Alert.alert(
+        'Error',
+        'End date precedes start date', // Button
+      )
+    } else if (new Date(this.state.enddate).getTime() > (new Date().getTime()) || (new Date(this.state.startdate)).getTime() > (new Date()).getTime()) {
+      Alert.alert(
+        'Error',
+        'Either start date or end date cannot be in the future', // Button
+      )
+    } else {
+      fetch('https://shrouded-tor-50203.herokuapp.com/submitform', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          studentName: this.state.name,
+          location: this.state.location,
+          hours: this.state.hours,
+          organization: this.state.organization,
+          startdate: this.state.startdate,
+          enddate: this.state.enddate
+        })
+      })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        if (responseJson.success) {
+          Alert.alert(
+            'Success',
+            'Submitted form successfully', // Button
+          )
+          this.props.navigation.navigate('MainPage');
+        } else {
+          Alert.alert(
+            'Error',
+            'Error submitting form', // Button
+          )
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    }
   }
 
   render = () => {
