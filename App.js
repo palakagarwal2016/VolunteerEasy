@@ -21,8 +21,8 @@ class Home extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      fullName: 'Full Name',
-      password: 'Password'
+      fullName: '',
+      password: ''
     }
   }
 

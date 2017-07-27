@@ -68,18 +68,19 @@ const ServiceHours = MKTextField.textfieldWithFloatingLabel()
     .build();
 
 export default class Form extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      name: '',
+      hours: null,
+      location: '',
+      organization: '',
+      startdate: null,
+      enddate: null,
+    }
+  }
   static navigationOptions = {
     title: 'Submit form'
-  }
-
-  _onSaveEvent(result) {
-    //result.encoded - for the base64 encoded png
-    //result.pathName - for the file path name
-    alert('save');
-  }
-
-  _onDragEvent(evt) {
-    alert('hi');
   }
 
   render() {
@@ -87,10 +88,10 @@ export default class Form extends React.Component {
       <View style={styles.container}>
         {/* display */}
         <View style={{margin:20}}>
-          <Name/>
-          <ServiceHours/>
-          <Location/>
-          <Organization/>
+          <Name onNameChange={(text) => {this.setState({name: text})}}/>
+          <ServiceHours onServiceChange={(hours) => {this.setState({hours: hours})}}/>
+          <Location onLocationChange={(location) => {this.setState({location: location})}}/>
+          <Organization onOrgChange={(organization) => {this.setState({organization: organization})}}/>
         </View>
         <Text>{"\n"}</Text>
         <View style={{flex: 1, alignItems: 'center'}}>
@@ -115,7 +116,7 @@ export default class Form extends React.Component {
             }
             // ... You can check the source to find the other keys.
           }}
-          onDateChange={(date) => {this.setState({date: date})}}
+          onDateChange={(date) => {this.setState({startdate: date})}}
         />
           <DatePicker
           style={{width: 150, display: 'inline'}}
@@ -138,7 +139,7 @@ export default class Form extends React.Component {
             }
             // ... You can check the source to find the other keys.
           }}
-          onDateChange={(date) => {this.setState({date: date})}}
+          onDateChange={(date) => {this.setState({enddate: date})}}
         />
     </View>
       {/*}<SignatureCapture
