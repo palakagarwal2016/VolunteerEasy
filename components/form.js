@@ -27,7 +27,7 @@ const inputStyles = StyleSheet.create({
   },
 });
 const Name = MKTextField.textfieldWithFloatingLabel()
-  .withPlaceholder('Total hours completed')
+  .withPlaceholder('Name')
   .withStyle(inputStyles.textfieldWithFloatingLabel)
   .withTextInputStyle({flex: 1})
   .withFloatingLabelFont({
@@ -35,7 +35,6 @@ const Name = MKTextField.textfieldWithFloatingLabel()
     fontStyle: 'italic',
     fontWeight: '200',
   })
-  .withKeyboardType('numeric')
   .build();
 
 const ServiceHours = MKTextField.textfieldWithFloatingLabel()
