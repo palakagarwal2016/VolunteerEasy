@@ -13,6 +13,7 @@
     "react-native-datepicker": "^1.6.0",
     "react-native-material-kit": "^0.4.1",
     "react-native-signature-capture": "^0.4.6",
+    "react-native-signature-pad": "0.0.8",
     "react-navigation": "^1.0.0-beta.11"
   }
 }

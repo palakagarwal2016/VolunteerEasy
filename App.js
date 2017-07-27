@@ -14,6 +14,7 @@ import {
 import MainPage from './components/mainpage';
 import Register from './components/register';
 import Form from './components/form';
+import SignTest from './components/SignTest'
 import { StackNavigator } from 'react-navigation';
 
 class Home extends React.Component {
@@ -34,6 +35,9 @@ class Home extends React.Component {
   }
   register() {
     this.props.navigation.navigate('Register');
+  }
+  sign() {
+    this.props.navigation.navigate('SignTest')
   }
 
 
@@ -60,6 +64,9 @@ class Home extends React.Component {
         <TouchableOpacity style={[styles.button, styles.buttonBlue]} onPress={ () => {this.register()} }>
           <Text style={styles.buttonLabel}>Register</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, styles.buttonBlue]} onPress={ () => {this.sign()} }>
+          <Text style={styles.buttonLabel}>Sign Test</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -77,7 +84,10 @@ export default StackNavigator({
   },
   Form: {
     screen: Form
-  }
+  },
+  SignTest: {
+    screen: SignTest
+  },
 }, {initialRouteName: 'Home'});
 
 const styles = StyleSheet.create({

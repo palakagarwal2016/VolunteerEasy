@@ -151,7 +151,7 @@ export default class Form extends React.Component {
           showNativeButtons={true}
           showTitleLabel={true}
           viewMode={'landscape'}
-        />*/}
+        /> */}
         <TouchableOpacity>
           <Button
             onPress={() => {alert('Submitted!')}}
