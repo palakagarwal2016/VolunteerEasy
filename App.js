@@ -21,7 +21,7 @@ class Home extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      username: 'Username',
+      fullName: 'Full Name',
       password: 'Password'
     }
   }
@@ -36,8 +36,9 @@ class Home extends React.Component {
   register() {
     this.props.navigation.navigate('Register');
   }
+
   sign() {
-    this.props.navigation.navigate('SignTest')
+    this.props.navigation.navigate('SignTest');
   }
 
 
@@ -47,9 +48,9 @@ class Home extends React.Component {
         <Text style={{fontSize: 30}}>Welcome to EasyForm!</Text>
         <TextInput
           style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.5, textAlign: 'center', margin: 10}}
-          placeholder="Username"
-          onChangeText={(text) => this.setState({username: text})}
-          value={this.state.username}
+          placeholder="Full Name"
+          onChangeText={(text) => this.setState({fullName: text})}
+          value={this.state.fullName}
         />
         <TextInput
           style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.25, textAlign: 'center', margin: 10}}

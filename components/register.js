@@ -1,12 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 export default class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'Username',
-      password: 'Password'
+      fullName: '',
+      password: ''
     }
   }
 
@@ -15,7 +16,34 @@ export default class Register extends React.Component {
   };
 
   register() {
-
+    fetch('https://shrouded-tor-50203.herokuapp.com/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fullName: this.state.fullName,
+        password: this.state.password
+      })
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if (responseJson.success) {
+        Alert.alert(
+          'Success',
+          'Registered successfully!', // Button
+        )
+        this.props.navigation.navigate('Home');
+      } else {
+        Alert.alert(
+          'Error',
+          responseJson.error, // Button
+        )
+      }
+    })
+    .catch((err) => {
+      console.log('error:', err);
+    });
   }
 
 
@@ -23,14 +51,15 @@ export default class Register extends React.Component {
     return (
       <View style={styles.container}>
         <TextInput
-          style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.5, textAlign: 'center', margin: 10}}
-          placeholder="Username"
-          onChangeText={(text) => this.setState({username: text})}
+          style={{marginTop: 90, height: 40, width: 400, borderColor: 'white', borderWidth: 0.5, textAlign: 'center', margin: 10}}
+          placeholder="Full Name"
+          onChangeText={(text) => this.setState({fullName: text})}
         />
         <TextInput
           style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.25, textAlign: 'center', margin: 10}}
           placeholder="Password"
           onChangeText={(text) => this.setState({password: text})}
+          secureTextEntry={true}
         />
         <TouchableOpacity onPress={ () => {this.register()} } style={[styles.button, styles.buttonGreen]}>
           <Text style={styles.buttonLabel}>Register</Text>
@@ -43,7 +72,6 @@ export default class Register extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
