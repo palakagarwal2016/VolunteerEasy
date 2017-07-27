@@ -10,16 +10,49 @@ export default class MainPage extends React.Component {
     title: 'Completed forms'
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      students: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://shrouded-tor-50203.herokuapp.com/students')
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if (responseJson.success) {
+        this.setState({
+          students: responseJson.students
+        });
+      } else {
+        Alert.alert(
+          'Error loading students',
+          responseJson.error, // Button
+        )
+      }
+    })
+    .catch((err) => {
+      console.log('error:', err);
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <View style={theme.cardStyle}>
+        <View style={{marginTop: 20}}>
           {/*<Image source={{uri : base64Icon}} style={theme.cardImageStyle} />*/}
           {/*Use list view*/}
-          <Text style={theme.cardActionStyle}>Amy Wang</Text>
-          <Text style={theme.cardContentStyle}>
-            Organizations: bob, bob, bob
-          </Text>
+          {this.state.students.length !== 0 ?
+            this.state.students.map((student) =>
+            <View style={theme.cardStyle}>
+              <Text style={theme.cardActionStyle}>Amy Wang                  Total: 8 hours</Text>
+              <Text style={theme.cardContentStyle}>
+                Organizations: bob, bob, bob
+              </Text>
+            </View>
+            )
+            : null}
         </View>
         <TouchableOpacity>
           <Button
