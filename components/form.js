@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, TouchableOpacity, TouchableHighlight } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import SignatureCapture from 'react-native-signature-capture';
-
+import StackNavigator from './mainpage';
 import {
   MKTextField,
   MKColor,
@@ -16,10 +16,6 @@ const inputStyles = StyleSheet.create({
     // alignItems: 'center', // this will prevent TFs from stretching horizontal
     marginLeft: 7, marginRight: 7,
     // backgroundColor: MKColor.Lime,
-  },
-  textfield: {
-    height: 28,  // have to do it on iOS
-    marginTop: 32,
   },
   textfieldWithFloatingLabel: {
     height: 48,  // have to do it on iOS
@@ -48,6 +44,17 @@ const ServiceHours = MKTextField.textfieldWithFloatingLabel()
   })
   .withKeyboardType('numeric')
   .build();
+
+  const Organization = MKTextField.textfieldWithFloatingLabel()
+    .withPlaceholder('Organization')
+    .withStyle(inputStyles.textfieldWithFloatingLabel)
+    .withTextInputStyle({flex: 1})
+    .withFloatingLabelFont({
+      fontSize: 20,
+      fontStyle: 'italic',
+      fontWeight: '200',
+    })
+    .build();
 
   const PhoneNumber = MKTextField.textfieldWithFloatingLabel()
     .withPlaceholder('Phone number')
@@ -80,10 +87,12 @@ export default class Form extends React.Component {
     return (
       <View style={styles.container}>
         {/* display */}
-
-        <Name/>
-        <ServiceHours/>
-        <PhoneNumber/>
+        <View style={{margin:20}}>
+          <Name/>
+          <ServiceHours/>
+          <PhoneNumber/>
+          <Organization/>
+        </View>
         <Text>{"\n"}</Text>
         <DatePicker
         style={{width: 150, display: 'inline'}}
@@ -131,7 +140,7 @@ export default class Form extends React.Component {
         }}
         onDateChange={(date) => {this.setState({date: date})}}
       />
-      <SignatureCapture
+      {/*}<SignatureCapture
           style={{width: 100, height: 100}}
           rotateClockwise={true}
           square={true}
@@ -141,8 +150,17 @@ export default class Form extends React.Component {
           showNativeButtons={true}
           showTitleLabel={true}
           viewMode={'landscape'}
-        />
+        />*/}
+        <TouchableOpacity>
+          <Button
+            onPress={() => {alert('Submitted!')}}
+            title="Submit"
+            color="#841584"
+            accessibilityLabel="Submit a form"
+          />
+        </TouchableOpacity>
       </View>
+
     );
   }
 }
@@ -150,7 +168,6 @@ export default class Form extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   button: {

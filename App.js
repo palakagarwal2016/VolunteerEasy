@@ -11,7 +11,7 @@ import {
   Button,
   RefreshControl
 } from 'react-native';
-import Login from './components/mainpage';
+import MainPage from './components/mainpage';
 import Register from './components/register';
 import Form from './components/form';
 import { StackNavigator } from 'react-navigation';
@@ -30,7 +30,7 @@ class Home extends React.Component {
   };
 
   login() {
-    this.props.navigation.navigate('Login');
+    this.props.navigation.navigate('MainPage');
   }
   register() {
     this.props.navigation.navigate('Register');
@@ -69,8 +69,8 @@ export default StackNavigator({
   Home: {
     screen: Home,
   },
-  Login: {
-    screen: Login,
+  MainPage: {
+    screen: MainPage,
   },
   Register: {
     screen: Register,
