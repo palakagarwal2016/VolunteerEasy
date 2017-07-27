@@ -83,6 +83,10 @@ export default class Form extends React.Component {
     title: 'Submit form'
   }
 
+  submit() {
+    this.props.navigation.navigate('MainPage');
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -155,7 +159,7 @@ export default class Form extends React.Component {
         /> */}
         <TouchableOpacity>
           <Button
-            onPress={() => {alert('Submitted!')}}
+            onPress={() => submit()}
             title="Submit"
             color="#841584"
             accessibilityLabel="Submit a form"
