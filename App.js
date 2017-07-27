@@ -48,7 +48,9 @@ class Home extends React.Component {
           'Success',
           'Logged in successfully!', // Button
         )
-        this.props.navigation.navigate('MainPage');
+        AsyncStorage.setItem('user', this.state.fullName).then(() => {
+          this.props.navigation.navigate('MainPage');
+        });
       } else {
         Alert.alert(
           'Error',
@@ -115,7 +117,7 @@ export default StackNavigator({
     screen: Register,
   },
   Form: {
-    screen: Form
+    screen: Form,
   },
   SignTest: {
     screen: SignTest
