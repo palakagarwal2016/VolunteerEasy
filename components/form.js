@@ -37,8 +37,6 @@ export default class Form extends React.Component {
       organization: '',
       startdate: '',
       enddate: '',
-      lat: '',
-      long: ''
     }
   }
 
@@ -50,12 +48,18 @@ export default class Form extends React.Component {
     AsyncStorage.getItem('user').then(user => this.setState({ name: user }));
     navigator.geolocation.getCurrentPosition(
       (success) => {
-        alert('latitude: ' + success.coords.latitude);
-        alert('longitude: ' + success.coords.longitude);
-        this.setState({
-          lat: success.coords.latitude,
-          long: success.coords.longitude
-        });
+        const latitude = success.coords.latitude;
+        const longitude = success.coords.longitude;
+        fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=AIzaSyBE__ygg30fHN72gjTjr2kVe9ql0qrAApQ')
+          .then((response) => response.json())
+          .then((responseJson) => {
+            this.setState({
+              location: responseJson.results[0].formatted_address
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       },
       (error) => {
 
@@ -80,7 +84,7 @@ export default class Form extends React.Component {
 
     const Location = MKTextField.textfield()
       .withPlaceholder('Location')
-      .withDefaultValue(this.state.lat + ', ' + this.state.long)
+      .withDefaultValue(this.state.location)
       .withStyle(inputStyles.textfield)
       .withTextInputStyle({flex: 1})
       .withOnEndEditing((e) => this.setState({location: e.nativeEvent.text}))
@@ -115,7 +119,7 @@ export default class Form extends React.Component {
         <Text>{"\n"}</Text>
         <View style={{flex: 1, alignItems: 'center'}}>
           <DatePicker
-          style={{width: 150, display: 'inline'}}
+          style={{width: 150}}
           date={"2016-05-15"}
           mode="date"
           format="YYYY-MM-DD"
@@ -138,7 +142,7 @@ export default class Form extends React.Component {
           onDateChange={(date) => {this.setState({startdate: date})}}
         />
           <DatePicker
-          style={{width: 150, display: 'inline'}}
+          style={{width: 150}}
           date={"2016-05-15"}
           mode="date"
           format="YYYY-MM-DD"
@@ -161,17 +165,6 @@ export default class Form extends React.Component {
           onDateChange={(date) => {this.setState({enddate: date})}}
         />
     </View>
-      {/*}<SignatureCapture
-          style={{width: 100, height: 100}}
-          rotateClockwise={true}
-          square={true}
-          onSaveEvent={this._onSaveEvent}
-          onDragEvent={this._onDragEvent}
-          saveImageFileInExtStorage={true}
-          showNativeButtons={true}
-          showTitleLabel={true}
-          viewMode={'landscape'}
-        /> */}
         <TouchableOpacity>
           <Button
             onPress={() => this.submit()}
