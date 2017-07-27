@@ -53,7 +53,6 @@ class Home extends React.Component {
         <TouchableOpacity onPress={ () => {this.login()} } style={[styles.button, styles.buttonGreen]}>
           <Text style={styles.buttonLabel}>Tap to Login</Text>
         </TouchableOpacity>
-        <Text>OR</Text>
         <TouchableOpacity style={[styles.button, styles.buttonBlue]} onPress={ () => {this.register()} }>
           <Text style={styles.buttonLabel}>Tap to Register</Text>
         </TouchableOpacity>

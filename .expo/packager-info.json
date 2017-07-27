@@ -1,8 +1,8 @@
 {
   "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://tu-fu4.palakagarwal2016.volunteereasy.exp.direct",
-  "packagerNgrokUrl": "https://packager.tu-fu4.palakagarwal2016.volunteereasy.exp.direct",
-  "ngrokPid": 79569,
-  "packagerPort": 19004,
-  "packagerPid": 79555
+  "expoServerNgrokUrl": "https://cz-6dr.horselurrver.volunteereasy.exp.direct",
+  "packagerNgrokUrl": "https://packager.cz-6dr.horselurrver.volunteereasy.exp.direct",
+  "ngrokPid": 29363,
+  "packagerPort": 19002,
+  "packagerPid": 29341
 }
