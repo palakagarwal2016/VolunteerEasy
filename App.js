@@ -16,6 +16,14 @@ import Register from './components/register'
 import { StackNavigator } from 'react-navigation';
 
 class Home extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      username: 'username',
+      password: 'password'
+    }
+  }
+
   static navigationOptions = {
     title: 'Home'
   };
@@ -31,10 +39,21 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.textBig}>Login to EasyForm!</Text>
+        <Text style={{fontSize: 30}}>Welcome to EasyForm!</Text>
+        <TextInput
+          style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.5, textAlign: 'center', margin: 10}}
+          placeholder="Username"
+          onChangeText={(text) => this.setState({username: text})}
+        />
+        <TextInput
+          style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.25, textAlign: 'center', margin: 10}}
+          placeholder="Password"
+          onChangeText={(text) => this.setState({password: text})}
+        />
         <TouchableOpacity onPress={ () => {this.login()} } style={[styles.button, styles.buttonGreen]}>
           <Text style={styles.buttonLabel}>Tap to Login</Text>
         </TouchableOpacity>
+        <Text>OR</Text>
         <TouchableOpacity style={[styles.button, styles.buttonBlue]} onPress={ () => {this.register()} }>
           <Text style={styles.buttonLabel}>Tap to Register</Text>
         </TouchableOpacity>
