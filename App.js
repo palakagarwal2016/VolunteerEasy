@@ -21,8 +21,8 @@ class Home extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      fullName: 'Full Name',
-      password: 'Password'
+      fullName: '',
+      password: ''
     }
   }
 
@@ -31,7 +31,38 @@ class Home extends React.Component {
   };
 
   login() {
-    this.props.navigation.navigate('MainPage');
+    fetch('https://shrouded-tor-50203.herokuapp.com/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fullName: this.state.fullName.trim(),
+        password: this.state.password
+      })
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if (responseJson.success) {
+        Alert.alert(
+          'Success',
+          'Logged in successfully!', // Button
+        )
+        this.props.navigation.navigate('MainPage');
+      } else {
+        Alert.alert(
+          'Error',
+          responseJson.error, // Button
+        )
+      }
+      this.setState({
+        fullName: '',
+        password: ''
+      });
+    })
+    .catch((err) => {
+      console.log('error:', err);
+    });
   }
   register() {
     this.props.navigation.navigate('Register');

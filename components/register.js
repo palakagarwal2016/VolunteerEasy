@@ -22,7 +22,7 @@ export default class Register extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        fullName: this.state.fullName,
+        fullName: this.state.fullName.trim(),
         password: this.state.password
       })
     })
@@ -40,6 +40,10 @@ export default class Register extends React.Component {
           responseJson.error, // Button
         )
       }
+      this.setState({
+        fullName: '',
+        password: ''
+      });
     })
     .catch((err) => {
       console.log('error:', err);

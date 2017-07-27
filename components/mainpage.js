@@ -16,11 +16,10 @@ export default class MainPage extends React.Component {
         <View style={theme.cardStyle}>
           {/*<Image source={{uri : base64Icon}} style={theme.cardImageStyle} />*/}
           {/*Use list view*/}
+          <Text style={theme.cardActionStyle}>Amy Wang</Text>
           <Text style={theme.cardContentStyle}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Mauris sagittis pellentesque lacus eleifend lacinia...
+            Organizations: bob, bob, bob
           </Text>
-          <Text style={theme.cardActionStyle}>My Action</Text>
         </View>
         <TouchableOpacity>
           <Button
