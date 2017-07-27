@@ -43,7 +43,7 @@ export default class Form extends React.Component {
   static navigationOptions = {
     title: 'Submit form'
   }
-
+// hello
   componentWillMount() {
     AsyncStorage.getItem('user').then(user => { this.setState({ name: user }); alert(user) });
   }
