@@ -22,6 +22,9 @@ const inputStyles = StyleSheet.create({
     marginTop: 32,
     color: 'white'
   },
+  placeholder: {
+    color: 'white'
+  }
 });
 
 export default class Form extends React.Component {
@@ -123,7 +126,7 @@ export default class Form extends React.Component {
     let Name = MKTextField.textfield()
       .withDefaultValue(this.state.name)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1, color: '#302d3c'})
+      .withTextInputStyle({flex: 1, color: 'white'})
       .withOnEndEditing((e) => this.setState({name: e.nativeEvent.text}))
       .build();
 
@@ -132,7 +135,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Location')
       .withDefaultValue(this.state.location)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1, color: '#302d3c'})
+      .withTextInputStyle({flex: 1, color: 'white'})
       .withOnEndEditing((e) => this.setState({location: e.nativeEvent.text}))
       .build();
 
@@ -140,7 +143,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Service Hours')
       .withDefaultValue(this.state.hours)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1, color: '#302d3c'})
+      .withTextInputStyle({flex: 1, color: 'white'})
       .withOnEndEditing((e) => this.setState({hours: e.nativeEvent.text}))
       .withKeyboardType('numeric')
       .build();
@@ -149,7 +152,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Organization')
       .withDefaultValue(this.state.organization)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1, color: '#302d3c'})
+      .withTextInputStyle({flex: 1, color: 'white'})
       .withOnEndEditing((e) => this.setState({organization: e.nativeEvent.text}))
       .build();
 
@@ -182,7 +185,8 @@ export default class Form extends React.Component {
               marginLeft: 36
             },
             dateText: {
-              fontFamily: 'KohinoorTelugu-Light'
+              fontFamily: 'KohinoorTelugu-Light',
+              color: 'white'
             }
             // ... You can check the source to find the other keys.
           }}
@@ -206,7 +210,8 @@ export default class Form extends React.Component {
               marginLeft: 36,
             },
             dateText: {
-              fontFamily: 'KohinoorTelugu-Light'
+              fontFamily: 'KohinoorTelugu-Light',
+              color: 'white'
             }
             // ... You can check the source to find the other keys.
           }}
