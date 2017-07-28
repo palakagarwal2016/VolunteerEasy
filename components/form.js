@@ -20,7 +20,6 @@ const inputStyles = StyleSheet.create({
   textfield: {
     height: 28,  // have to do it on iOS
     marginTop: 32,
-    color: 'white'
   },
   placeholder: {
     color: 'white'
@@ -126,7 +125,7 @@ export default class Form extends React.Component {
     let Name = MKTextField.textfield()
       .withDefaultValue(this.state.name)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1, color: 'white'})
+      .withTextInputStyle({flex: 1, color: '#87849a'})
       .withOnEndEditing((e) => this.setState({name: e.nativeEvent.text}))
       .build();
 
@@ -135,7 +134,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Location')
       .withDefaultValue(this.state.location)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1, color: 'white'})
+      .withTextInputStyle({flex: 1, color: '#87849a'})
       .withOnEndEditing((e) => this.setState({location: e.nativeEvent.text}))
       .build();
 
@@ -143,7 +142,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Service Hours')
       .withDefaultValue(this.state.hours)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1, color: 'white'})
+      .withTextInputStyle({flex: 1, color: '#87849a'})
       .withOnEndEditing((e) => this.setState({hours: e.nativeEvent.text}))
       .withKeyboardType('numeric')
       .build();
@@ -152,7 +151,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Organization')
       .withDefaultValue(this.state.organization)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1, color: 'white'})
+      .withTextInputStyle({flex: 1, color: '#87849a'})
       .withOnEndEditing((e) => this.setState({organization: e.nativeEvent.text}))
       .build();
 
@@ -186,7 +185,7 @@ export default class Form extends React.Component {
             },
             dateText: {
               fontFamily: 'KohinoorTelugu-Light',
-              color: 'white'
+              color: '#87849a'
             }
             // ... You can check the source to find the other keys.
           }}
@@ -211,7 +210,7 @@ export default class Form extends React.Component {
             },
             dateText: {
               fontFamily: 'KohinoorTelugu-Light',
-              color: 'white'
+              color: '#87849a'
             }
             // ... You can check the source to find the other keys.
           }}
@@ -245,7 +244,7 @@ export default class Form extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#343243',
+    backgroundColor: 'white',
   },
   button: {
     alignSelf: 'stretch',
