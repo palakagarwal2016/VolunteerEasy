@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, ScrollView, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
-import {StackNavigator} from 'react-navigation';
+import { StackNavigator } from 'react-navigation';
 
 export default class Register extends React.Component {
   constructor(props) {

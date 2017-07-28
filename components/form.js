@@ -1,12 +1,5 @@
 import React from 'react';
-import { Alert,
-  AsyncStorage,
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  TouchableHighlight } from 'react-native';
+import { Alert, AsyncStorage, Button, StyleSheet, Text, TextInput, View, TouchableOpacity, TouchableHighlight } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import SignatureCapture from 'react-native-signature-capture';
 import {StackNavigator} from './mainpage';
@@ -27,10 +20,7 @@ const inputStyles = StyleSheet.create({
   textfield: {
     height: 28,  // have to do it on iOS
     marginTop: 32,
-  },
-  textfieldWithFloatingLabel: {
-    height: 48,  // have to do it on iOS
-    marginTop: 10,
+    color: 'white'
   },
 });
 
@@ -50,7 +40,7 @@ export default class Form extends React.Component {
   static navigationOptions = {
     title: 'Submit form'
   }
-// hello
+
   componentWillMount() {
     AsyncStorage.getItem('user').then(user => this.setState({ name: user }));
     navigator.geolocation.getCurrentPosition(
@@ -75,63 +65,65 @@ export default class Form extends React.Component {
     )
   }
 
+
   submit() {
-    if (this.state.name === "" || this.state.hours === "" || this.state.location === "" || this.state.organization === "") {
-      Alert.alert(
-        'Error',
-        'Not all fields complete', // Button
-      )
-    } else if (new Date(this.state.enddate).getTime() < new Date(this.state.startdate).getTime()) {
-      Alert.alert(
-        'Error',
-        'End date precedes start date', // Button
-      )
-    } else if (new Date(this.state.enddate).getTime() > (new Date().getTime()) || (new Date(this.state.startdate)).getTime() > (new Date()).getTime()) {
-      Alert.alert(
-        'Error',
-        'Either start date or end date cannot be in the future', // Button
-      )
-    } else {
-      fetch('https://shrouded-tor-50203.herokuapp.com/submitform', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          studentName: this.state.name,
-          location: this.state.location,
-          hours: this.state.hours,
-          organization: this.state.organization,
-          startdate: this.state.startdate,
-          enddate: this.state.enddate
+      if (this.state.name === "" || this.state.hours === "" || this.state.location === "" || this.state.organization === "") {
+        Alert.alert(
+          'Error',
+          'Not all fields complete', // Button
+        )
+      } else if ((new Date(this.state.enddate)).getTime() < (new Date(this.state.startdate)).getTime()) {
+        Alert.alert(
+          'Error',
+          'End date precedes start date', // Button
+        )
+      } else if ((new Date(this.state.enddate)).getTime() > (new Date().getTime()) || (new Date(this.state.startdate)).getTime() > ((new Date()).getTime())) {
+        Alert.alert(
+          'Error',
+          'Either start date or end date cannot be in the future', // Button
+        )
+      } else {
+        fetch('https://shrouded-tor-50203.herokuapp.com/submitform', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            studentName: this.state.name,
+            location: this.state.location,
+            hours: this.state.hours,
+            organization: this.state.organization,
+            startdate: this.state.startdate,
+            enddate: this.state.enddate
+          })
         })
-      })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        if (responseJson.success) {
-          Alert.alert(
-            'Success',
-            'Submitted form successfully', // Button
-          )
-          this.props.navigation.navigate('MainPage');
-        } else {
+        .then((response) => response.json())
+        .then((responseJson) => {
+          if (responseJson.success) {
+            Alert.alert(
+              'Success',
+              'Your volunteer hours have been submitted', // Button
+            )
+            this.props.navigation.navigate('MainPage');
+          }
+        })
+        .catch((error) => {
           Alert.alert(
             'Error',
-            'Error submitting form', // Button
+            'Error submitting form',
+             // Button
           )
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+          console.error(error);
+        });
+      }
     }
-  }
+
 
   render = () => {
     let Name = MKTextField.textfield()
       .withDefaultValue(this.state.name)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1})
+      .withTextInputStyle({flex: 1, color: '#302d3c'})
       .withOnEndEditing((e) => this.setState({name: e.nativeEvent.text}))
       .build();
 
@@ -140,7 +132,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Location')
       .withDefaultValue(this.state.location)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1})
+      .withTextInputStyle({flex: 1, color: '#302d3c'})
       .withOnEndEditing((e) => this.setState({location: e.nativeEvent.text}))
       .build();
 
@@ -148,7 +140,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Service Hours')
       .withDefaultValue(this.state.hours)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1})
+      .withTextInputStyle({flex: 1, color: '#302d3c'})
       .withOnEndEditing((e) => this.setState({hours: e.nativeEvent.text}))
       .withKeyboardType('numeric')
       .build();
@@ -157,7 +149,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Organization')
       .withDefaultValue(this.state.organization)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1})
+      .withTextInputStyle({flex: 1, color: '#302d3c'})
       .withOnEndEditing((e) => this.setState({organization: e.nativeEvent.text}))
       .build();
 
@@ -188,6 +180,9 @@ export default class Form extends React.Component {
             },
             dateInput: {
               marginLeft: 36
+            },
+            dateText: {
+              fontFamily: 'KohinoorTelugu-Light'
             }
             // ... You can check the source to find the other keys.
           }}
@@ -208,11 +203,24 @@ export default class Form extends React.Component {
               marginLeft: 0
             },
             dateInput: {
-              marginLeft: 36
+              marginLeft: 36,
+            },
+            dateText: {
+              fontFamily: 'KohinoorTelugu-Light'
             }
             // ... You can check the source to find the other keys.
           }}
           onDateChange={(date) => {this.setState({enddate: date})}}
+        />
+        <Text>{"\n"}</Text>
+        <SignatureCapture
+          style={{width: 300, height: 100}}
+          onSaveEvent={this._onSaveEvent}
+          onDragEvent={this._onDragEvent}
+          saveImageFileInExtStorage={true}
+          showNativeButtons={false}
+          showTitleLabel={false}
+          viewMode={'portrait'}
         />
     </View>
         <TouchableOpacity>
@@ -232,7 +240,7 @@ export default class Form extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#343243',
   },
   button: {
     alignSelf: 'stretch',
@@ -243,15 +251,4 @@ const styles = StyleSheet.create({
     marginRight: 5,
     borderRadius: 5
   },
-  buttonBlue: {
-    backgroundColor: '#0074D9',
-  },
-  buttonGreen: {
-    backgroundColor: '#2ECC40'
-  },
-  buttonLabel: {
-    textAlign: 'center',
-    fontSize: 16,
-    color: 'white'
-  }
 });

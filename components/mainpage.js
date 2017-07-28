@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListView, StyleSheet, TouchableOpacity, Text, View, Image, Button } from 'react-native';
+import { ListView, StyleSheet, TouchableOpacity, Text, View, Image } from 'react-native';
 import {
   getTheme,
 } from 'react-native-material-kit';
@@ -42,28 +42,26 @@ export default class MainPage extends React.Component {
   }
 
   render() {
+    const font = 'KohinoorTelugu-Light';
     return (
       <View style={styles.container}>
         <View style={{marginTop: 20}}>
           {/*<Image source={{uri : base64Icon}} style={theme.cardImageStyle} />*/}
           {/*Use list view*/}
-          <TouchableOpacity>
-            <Button
-              onPress={() => {this.props.navigation.navigate('Form');}}
-              title="New form"
-              color="#841584"
-              accessibilityLabel="Submit a form"
-            />
-          </TouchableOpacity>
+          <View style={{alignItems: 'center'}}>
+            <TouchableOpacity>
+              <Text onPress={() => this.props.navigation.navigate('Form')} style={{fontSize: 20, color: '#87849a', fontFamily: font}}>New form</Text>
+            </TouchableOpacity>
+          </View>
           {this.state.students.length !== 0 ?
             <ListView
               dataSource={this.state.dataSource}
               renderRow={(student) =>
               <View>
                 <View key={student._id} style={theme.cardStyle}>
-                  <Text style={theme.cardActionStyle}>{student.fullName}                 Total: {student.hours} hours</Text>
+                  <Text style={theme.cardActionStyle}><Text style={{color: '#343243', fontFamily: font}}>{student.fullName}                 Total: {student.hours} hours</Text></Text>
                   <Text style={theme.cardContentStyle}>
-                    Organizations: {student.organizations.length === 0 ? "None" : student.organizations.join(', ')}
+                    <Text style={{fontFamily: font}}>Organizations: {student.organizations.length === 0 ? "None" : student.organizations.filter((item, pos) => student.organizations.indexOf(item) === pos).join(', ')}</Text>
                   </Text>
                 </View>
               <Text>{"\n"}</Text>
@@ -82,6 +80,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#343243',
   },
 });
